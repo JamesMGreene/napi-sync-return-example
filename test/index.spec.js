@@ -24,39 +24,39 @@ describe('addon', function() {
     });
 
     it('should expect 2 parameters', function() {
-      expect(() => { addon.add(); }).to.throw(Error, 'Invalid argument count');
-      expect(() => { addon.add(1); }).to.throw(Error, 'Invalid argument count');
-      expect(() => { addon.add(1, 2, 3); }).to.throw(Error, 'Invalid argument count');
-      expect(() => { addon.add(1, 2, 3, 4); }).to.throw(Error, 'Invalid argument count');
+      expect(() => { addon.add(); }).to.throw(TypeError, 'Invalid argument count');
+      expect(() => { addon.add(1); }).to.throw(TypeError, 'Invalid argument count');
+      expect(() => { addon.add(1, 2, 3); }).to.throw(TypeError, 'Invalid argument count');
+      expect(() => { addon.add(1, 2, 3, 4); }).to.throw(TypeError, 'Invalid argument count');
     });
 
     it('should expect valid parameters', function() {
       // Invalid param 1
-      expect(() => { addon.add('a', 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(false, 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(true, 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add({}, 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add([], 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add([1], 2); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(() => { 1 }, 2); }).to.throw(Error, 'Invalid argument types');
+      expect(() => { addon.add('a', 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(false, 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(true, 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add({}, 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add([], 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add([1], 2); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(() => { 1 }, 2); }).to.throw(TypeError, 'Invalid argument types');
 
       // Invalid param 2
-      expect(() => { addon.add(1, 'b'); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, false); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, true); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, {}); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, []); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, [2]); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(1, () => { 2 }); }).to.throw(Error, 'Invalid argument types');
+      expect(() => { addon.add(1, 'b'); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, false); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, true); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, {}); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, []); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, [2]); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(1, () => { 2 }); }).to.throw(TypeError, 'Invalid argument types');
 
       // Invalid params 1 + 2
-      expect(() => { addon.add('a', 'b'); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(false, false); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(true, true); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add({}, {}); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add([], []); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add([1], [2]); }).to.throw(Error, 'Invalid argument types');
-      expect(() => { addon.add(() => { 1 }, () => { 2 }); }).to.throw(Error, 'Invalid argument types');
+      expect(() => { addon.add('a', 'b'); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(false, false); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(true, true); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add({}, {}); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add([], []); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add([1], [2]); }).to.throw(TypeError, 'Invalid argument types');
+      expect(() => { addon.add(() => { 1 }, () => { 2 }); }).to.throw(TypeError, 'Invalid argument types');
     });
 
     it('should add numbers together', function() {
